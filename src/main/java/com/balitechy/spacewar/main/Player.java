@@ -70,9 +70,5 @@ public class Player {
 		if(y >= (Game.HEIGHT * Game.SCALE) - HEIGHT)
 			y = (Game.HEIGHT * Game.SCALE) - HEIGHT;
 	}
-	
-	public void render(Graphics g){
-		g.setColor(Color.white);
-		g.drawImage(image, (int) x, (int) y, null);
-	}
+
 }

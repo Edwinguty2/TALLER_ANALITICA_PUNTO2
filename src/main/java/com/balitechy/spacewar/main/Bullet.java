@@ -21,10 +21,11 @@ public class Bullet {
 		y -= 5;
 	}
 	
-	public void render(Graphics g){
-		g.drawImage(image, (int) x, (int) y, null);
-	}
-	
+        
+        public double getX() {
+        return x;
+        }
+        
 	public double getY(){
 		return y;
 	}
