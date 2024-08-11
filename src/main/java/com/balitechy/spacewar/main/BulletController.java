@@ -1,6 +1,5 @@
 package com.balitechy.spacewar.main;
 
-import java.awt.Graphics;
 import java.util.LinkedList;
 
 public class BulletController {
@@ -16,12 +15,6 @@ public class BulletController {
 		}
 	}
 	
-	public void render(Graphics g){
-		for(int i=0; i < bl.size(); i++){
-			bl.get(i).render(g);
-		}
-	}
-	
 	public void addBullet(Bullet bullet){
 		bl.add(bullet);
 	}
@@ -29,4 +22,10 @@ public class BulletController {
 	public void removeBullet(Bullet bullet){
 		bl.remove(bullet);
 	}
+        
+        public LinkedList<Bullet> getBullets() {
+            return bl;
+        }
+        
+     
 }

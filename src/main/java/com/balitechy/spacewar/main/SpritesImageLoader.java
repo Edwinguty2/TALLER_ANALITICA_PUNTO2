@@ -14,10 +14,20 @@ public class SpritesImageLoader {
 		this.path = path;
 	}
 	
+        public BufferedImage loadImage() throws IOException{
+            image = ImageIO.read(getClass().getResourceAsStream(path)); 
+            if (image == null) {
+                throw new IOException("Image not found at path: " + path);
+            }
+            return image;
+        }
+        
+        /*
 	public BufferedImage loadImage() throws IOException{
 		image = ImageIO.read(getClass().getResource(path));
 		return image;
 	}
+        */
 	
 	public BufferedImage getImage(int top, int left, int width, int height){
 		BufferedImage img = image.getSubimage(top, left, width, height);
