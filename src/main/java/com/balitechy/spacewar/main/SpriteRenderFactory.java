@@ -5,6 +5,8 @@
 package com.balitechy.spacewar.main;
 
 import java.awt.image.BufferedImage;
+import java.io.IOException;
+import javax.imageio.ImageIO;
 
 /**
  *
@@ -14,6 +16,8 @@ public class SpriteRenderFactory implements RenderFactory{
     
     
     private SpritesImageLoader sprites;
+    private BufferedImage backgroundImage;
+
 
     public SpriteRenderFactory(SpritesImageLoader sprites) {
         this.sprites = sprites;
@@ -21,20 +25,27 @@ public class SpriteRenderFactory implements RenderFactory{
     
     @Override
     public PlayerRender createPlayerRenderer() {
-        BufferedImage image = sprites.getImage(219, 304, 30, 30);
+        BufferedImage image = sprites.getImage(219, 304, 56, 28);
         return new SpritePlayerRender(image);
     }
 
     @Override
     public BulletRender createBulletRenderer() {
-        BufferedImage image = sprites.getImage(35, 52, 5, 5);
+        BufferedImage image = sprites.getImage(35, 52, 11, 21);
         return new SpriteBulletRender(image);
     }
 
     @Override
     public BackgroundRender createBackgroundRenderer(){
-        BufferedImage background = sprites.getImage(0, 0, 640, 480);
-        return new SpriteBackgroundRender(background);
+        SpritesImageLoader bgLoader = new SpritesImageLoader("/bg.png");
+        try {
+            BufferedImage background = bgLoader.loadImage();
+            return new SpriteBackgroundRender(background);
+        } catch (IOException e) {
+            System.err.println("Failed to create BackgroundRender.");
+            return null;
+        }
+
     }
     
 }

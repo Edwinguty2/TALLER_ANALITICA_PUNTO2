@@ -19,7 +19,7 @@ public class VectorBackgroundRender implements BackgroundRender{
         g.setColor(Color.BLACK);
         g.fillRect(0, 0, c.getWidth(), c.getHeight());
         g.setColor(Color.GRAY);
-        g.drawOval(50, 50, 100, 100);
+        g.fillOval(50, 50, 100, 100);
     }
     
 }

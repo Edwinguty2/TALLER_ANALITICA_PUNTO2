@@ -8,6 +8,7 @@ import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 public class Game extends Canvas implements Runnable {
 
@@ -192,7 +193,39 @@ public class Game extends Canvas implements Runnable {
     }
     
     public static void main(String[] args) {        
-        RenderFactory factory = new VectorFactoryRender(); 
+        String[] options = {"Colorful Vectorial Style", "Sprite Style"};
+        int choice = -1;
+        RenderFactory factory;
+        SpritesImageLoader sprites = new SpritesImageLoader("/sprites.png");
+        
+        try {
+            sprites.loadImage();
+        } catch (IOException e) {
+            return;
+        }
+        
+       
+        choice = JOptionPane.showOptionDialog(null,
+                    "Seleccione el estilo de renderizado:",
+                    "Seleccionar Estilo",
+                    JOptionPane.DEFAULT_OPTION,
+                    JOptionPane.INFORMATION_MESSAGE,
+                    null,
+                    options,
+                    options[1]);
+
+         switch (choice) {
+            case -1:
+                System.exit(0);
+            case 0:
+                factory = new VectorFactoryRender();
+                break;
+            case 1:
+                factory = new SpriteRenderFactory(sprites);
+                break;
+            default:
+                throw new IllegalStateException("Selección inválida: " + choice);
+        }
         
         Game game = new Game(factory);
         game.setPreferredSize(new Dimension(WIDTH * SCALE, HEIGHT * SCALE));
