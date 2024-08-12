@@ -10,16 +10,15 @@ import java.awt.Graphics;
 
 /**
  *
- * @author Usuario
+ * @author Asus-PC
  */
-public class VectorBackgroundRender implements BackgroundRender{
-
+public class VectorBackgroundRender implements BackgroundRender {
+   
     @Override
     public void render(Graphics g, Canvas c) {
-        g.setColor(Color.BLACK);
+        g.setColor(Color.WHITE);
         g.fillRect(0, 0, c.getWidth(), c.getHeight());
-        g.setColor(Color.GRAY);
-        g.fillOval(50, 50, 100, 100);
+        g.setColor(Color.BLACK);
+        g.drawOval(50, 50, 100, 100);
     }
-    
 }

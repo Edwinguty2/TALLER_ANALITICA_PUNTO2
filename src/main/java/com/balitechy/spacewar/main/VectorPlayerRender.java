@@ -9,15 +9,14 @@ import java.awt.Graphics;
 
 /**
  *
- * @author Usuario
+ * @author Asus-PC
  */
-public class VectorPlayerRender implements PlayerRender{
-
-    @Override
+public class VectorPlayerRender implements PlayerRender {
+    
+     @Override
     public void render(Graphics g, double x, double y) {
-        g.setColor(Color.BLUE);
+        g.setColor(Color.BLACK);
         g.drawPolygon(new int[]{(int)x, (int)x + 15, (int)x + 30}, 
                       new int[]{(int)y + 30, (int)y, (int)y + 30}, 3);
     }
-    
 }

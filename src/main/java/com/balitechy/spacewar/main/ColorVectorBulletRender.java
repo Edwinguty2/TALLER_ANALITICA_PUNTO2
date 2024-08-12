@@ -9,13 +9,13 @@ import java.awt.Graphics;
 
 /**
  *
- * @author Asus-PC
+ * @author Usuario
  */
-public class VectorBulletRender implements BulletRender{
+public class ColorVectorBulletRender implements BulletRender{
 
     @Override
     public void render(Graphics g, double x, double y) {
-        g.setColor(Color.BLACK);
+        g.setColor(Color.PINK);
         g.drawLine((int)x, (int)y, (int)x, (int)y + 5);
     }
     

@@ -9,14 +9,15 @@ import java.awt.Graphics;
 
 /**
  *
- * @author Asus-PC
+ * @author Usuario
  */
-public class VectorBulletRender implements BulletRender{
+public class ColorVectorPlayerRender implements PlayerRender{
 
     @Override
     public void render(Graphics g, double x, double y) {
-        g.setColor(Color.BLACK);
-        g.drawLine((int)x, (int)y, (int)x, (int)y + 5);
+        g.setColor(Color.BLUE);
+        g.fillPolygon(new int[]{(int)x, (int)x + 15, (int)x + 30}, 
+                      new int[]{(int)y + 30, (int)y, (int)y + 30}, 3);
     }
     
 }

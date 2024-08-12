@@ -6,23 +6,23 @@ package com.balitechy.spacewar.main;
 
 /**
  *
- * @author Asus-PC
+ * @author Usuario
  */
-public class VectorFactoryRender implements RenderFactory{
+public class ColorVectorFactoryRender implements RenderFactory{
 
     @Override
     public PlayerRender createPlayerRenderer() {
-        return new VectorPlayerRender();
+        return new ColorVectorPlayerRender();
     }
 
     @Override
     public BulletRender createBulletRenderer() {
-        return new VectorBulletRender();
+        return new ColorVectorBulletRender();
     }
 
     @Override
     public BackgroundRender createBackgroundRenderer() {
-        return new VectorBackgroundRender();
+        return new ColorVectorBackgroundRender();
     }
     
 }

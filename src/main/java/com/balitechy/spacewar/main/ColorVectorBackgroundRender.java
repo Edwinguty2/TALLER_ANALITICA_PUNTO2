@@ -4,19 +4,22 @@
  */
 package com.balitechy.spacewar.main;
 
+import java.awt.Canvas;
 import java.awt.Color;
 import java.awt.Graphics;
 
 /**
  *
- * @author Asus-PC
+ * @author Usuario
  */
-public class VectorBulletRender implements BulletRender{
+public class ColorVectorBackgroundRender implements BackgroundRender{
 
     @Override
-    public void render(Graphics g, double x, double y) {
-        g.setColor(Color.BLACK);
-        g.drawLine((int)x, (int)y, (int)x, (int)y + 5);
+    public void render(Graphics g, Canvas c) {
+        g.setColor(Color.DARK_GRAY);
+        g.fillRect(0, 0, c.getWidth(), c.getHeight());
+        g.setColor(Color.GRAY);
+        g.fillOval(50, 50, 100, 100);
     }
     
 }

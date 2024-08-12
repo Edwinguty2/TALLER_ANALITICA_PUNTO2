@@ -193,7 +193,7 @@ public class Game extends Canvas implements Runnable {
     }
     
     public static void main(String[] args) {        
-        String[] options = {"Colorful Vectorial Style", "Sprite Style"};
+        String[] options = {"Colorful Vectorial Style", "Sprite Style", "Retro Vectorial"};
         int choice = -1;
         RenderFactory factory;
         SpritesImageLoader sprites = new SpritesImageLoader("/sprites.png");
@@ -218,10 +218,13 @@ public class Game extends Canvas implements Runnable {
             case -1:
                 System.exit(0);
             case 0:
-                factory = new VectorFactoryRender();
+                factory = new ColorVectorFactoryRender();
                 break;
             case 1:
                 factory = new SpriteRenderFactory(sprites);
+                break;
+            case 2:
+                factory = new VectorFactoryRender();
                 break;
             default:
                 throw new IllegalStateException("Selección inválida: " + choice);
